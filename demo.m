@@ -140,7 +140,7 @@ end
 % plot(sumVec);
 % plot(presented);
 figure('Name','detected staff');
-plot(sumVec);
+plot(sumVec);hold on;
 scatter(staffLocations, sumVec(staffLocations), 50, 'r', 'filled');
 
 %%%%%%%%%%%%%%%%%%%%%%%% find tievot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +169,9 @@ imNoLines = imadjust(im);
     
 
     im_res = cat(3, im_r, im_g, im_b);
+    figure('Name','Detected Staff');
     imshow(im_res,[])
+    figure('Name','Original Image'); imshow(im,[]);
 %     stop
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% auto complete line objects %%%%%%%%%%%%%%%%
@@ -194,6 +196,7 @@ end
 figure;
 imshow(imNoLines,[])
 %% Notes detection trial 2 - filer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEMO 2
+close all;
 im2 = imNoLines;
 %im2 = imgaussfilt(imNoLines);
 load('half_note_filter.mat');
